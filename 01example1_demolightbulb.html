@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!-- Versie van 19/11/14 GJ -->
+<html>
+
+<head>
+    <title>LightBulb Example</title>
+</head>
+
+<body>
+    <script>
+        function changeImage() {
+            var image = document.getElementById('myImage');
+            var src = image.getAttribute("src");
+            if (src.match("bulbon")) {
+                image.setAttribute("src", "images/pic_bulboff.gif");
+                // image.src="images/pic_bulboff.gif";
+            } else {
+                image.setAttribute("src", "images/pic_bulbon.gif");
+            }
+        }
+    </script>
+    <figure>
+        <img id="myImage" onclick="changeImage()" src="images/pic_bulboff.gif" width="100" height="180" alt="">
+        <figcaption>Click the light bulb to turn on/off the light</figcaption>
+    </figure>
+
+
+</body>
+
+</html>

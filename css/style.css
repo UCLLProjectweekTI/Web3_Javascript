@@ -1,0 +1,49 @@
+body {
+	background-color: #FFF;
+	color: #000;
+	font-size: 1em;
+	font-family: droid-sans, sans-serif;
+}
+
+div#container {
+	position: relative;
+	width: 90%;
+	margin: 10px auto;
+	background-color: grey;
+	padding: 10px;
+}
+
+#standaardWeergave {
+	background-color: #FFF;
+	color:#000;
+	font-size: 1em;
+}
+
+#hoogContrast{
+	background-color: #000;
+	color: #FFF;
+	font-size: 2em;	
+}
+
+aside#buttons {
+	width: 10em;;
+	position: absolute;
+	top:0;
+	right: 0;
+	text-align: right;
+	border: 1px solid red;
+}
+
+input {
+	font-size: inherit;
+	width: 10em;
+}
+
+figure {
+	margin:auto;
+	text-align: center;
+}
+
+figure figcaption {
+	padding-top: 20px;
+}

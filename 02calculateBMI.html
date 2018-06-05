@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculate your BMI</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+<div id="container">
+<form id="form">
+    <p><label for="height">Your height in cm: <input type="number" id="height"></label>
+    </p>
+    <p>
+        <label for="weight">Your weight in kg: <input type="number" id="weight"></label>
+    </p>
+    <p>
+        <input type="button" value="Calculate my BMI" id="submit">
+    </p>
+</form>
+
+</div>
+
+<script>
+    function calculateBMI(height, weight) {
+        return weight / (height * height)*10000;
+    }
+
+    function generateResultingString() {
+        var height = document.getElementById("height").value;
+        var weight = document.getElementById("weight").value;
+        return "Your BMI is equal to " + calculateBMI(height, weight) + "."
+    }
+
+    function removeForm() {
+        document.getElementById("container").removeChild(document.getElementById("form"));
+    }
+
+    function addResult() {
+        var div = document.createElement("div");
+        div.setAttribute("id", "result");
+        var p = document.createElement("p");
+        p.appendChild(document.createTextNode(generateResultingString()));
+        div.appendChild(p);
+        div.appendChild(addReloadButton());
+        document.getElementById("container").appendChild(div);
+        document.getElementById("reloadButton").addEventListener("click",reloadForm);
+    }
+
+    function addReloadButton() {
+        var button = document.createElement("button");
+        button.setAttribute("value","Calculate again");
+        button.setAttribute("id","reloadButton");
+        button.appendChild(document.createTextNode("Calculate Again"));
+        return button;
+    }
+
+    function showBMI() {
+        addResult();
+        removeForm();
+    }
+
+    function reloadForm() {
+        location.reload();
+    }
+
+    document.getElementById("submit").addEventListener("click",showBMI);
+
+</script>
+</body>
+</html>

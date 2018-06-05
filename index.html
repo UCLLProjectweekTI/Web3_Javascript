@@ -3,19 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title>Overview of trials in JS</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
+<div id="container">
     <dl>
         <dt>EventListener</dt>
-        <dd><a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener">Source</a></dd>
         <dd><a href="01example1_demolightbulb.html">Example</a></dd>
+        <dd><a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener">Documentation about
+            event listener</a></dd>
         <dd>Remarks
             <ul>
                 <li>Current version uses anonymous function <code>function(){}</code></li>
                 <li>Alternatively: do not pass any parameter to function <code>changeImage</code> and declare variable
-                    <code>image</code> inside function</li>
+                    <code>image</code> inside function
+                </li>
             </ul>
         </dd>
+
+        <dt>BMI calculator</dt>
+        <dd><a href="02calculateBMI.html">Example</a></dd>
+        <dd><a href="https://developer.mozilla.org/nl/docs/Web/API/Document/createTextNode">Documentation about adding
+            text node</a></dd>
+        <dd><a href="https://www.w3schools.com/jsref/obj_location.asp">Documentation about reloading page from cache</a>
+        </dd>
+        <dd>Remarks
+        <ul>
+            <li>Take care when to add action to reload button</li>
+            <li>Button has to be styled up by CSS</li>
+        </ul>
+        </dd>
+
     </dl>
+</div>
 </body>
 </html>

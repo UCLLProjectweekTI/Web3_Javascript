@@ -7,14 +7,14 @@
 </head>
 <body>
 <div id="container">
-<form id="form">
-    <p><label for="height">Your height in cm: <input type="number" id="height"></label>
+<form id="form" action ="">
+    <p><label for="height">Your height in cm: <input type="number" id="height" required></label>
     </p>
     <p>
-        <label for="weight">Your weight in kg: <input type="number" id="weight"></label>
+        <label for="weight">Your weight in kg: <input type="number" id="weight" required></label>
     </p>
     <p>
-        <input type="button" value="Calculate my BMI" id="submit">
+        <input type="submit" value="Calculate my BMI" id="submit">
     </p>
 </form>
 
@@ -22,7 +22,7 @@
 
 <script>
     function calculateBMI(height, weight) {
-        return weight / (height * height)*10000;
+        return Math.round(weight / (height * height)*10000);
     }
 
     function generateResultingString() {

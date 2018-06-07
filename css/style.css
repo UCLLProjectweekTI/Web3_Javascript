@@ -1,37 +1,30 @@
 body {
-	background-color: #FFF;
+	background-color: #000;
 	color: #000;
 	font-size: 1em;
 	font-family: droid-sans, sans-serif;
 }
 
+p {
+    margin: 1.5em 0.5em;
+    padding: 1em;
+}
+
 div#container {
-	position: relative;
 	width: 90%;
 	margin: 10px auto;
 	background-color: #b3b3b3;
 	padding: 10px;
+    overflow: auto;
+}
+div#container.small {
+    width: 50%;
 }
 
-#standaardWeergave {
-	background-color: #FFF;
-	color:#000;
-	font-size: 1em;
-}
-
-#hoogContrast{
-	background-color: #000;
-	color: #FFF;
-	font-size: 2em;	
-}
-
-aside#buttons {
-	width: 10em;;
-	position: absolute;
-	top:0;
-	right: 0;
-	text-align: right;
-	border: 1px solid red;
+div#container form {
+    width: 22em;
+    margin: auto;
+    overflow: auto;
 }
 
 input {
@@ -39,19 +32,21 @@ input {
 	width: 10em;
 }
 
-figure {
-	margin:auto;
-	text-align: center;
+form p input {
+    float: right;
 }
 
-figure figcaption {
-	padding-top: 20px;
+form p {
+    clear: both;
+    margin: 1em 0;
+    overflow: auto;
 }
 
 button {
 	width: 20em;
 	height: 40px;
-	background-color: #deb787;
+	background-color: #ffcfb8;
+    float: right;
 }
 
 dt {
@@ -65,4 +60,9 @@ dd {
 
 dd:last-child {
 	margin-bottom: 1.5em;
+}
+
+#error, .error {
+    border: 1px solid #ff4db8;
+    background-color: #ffb6e1;
 }

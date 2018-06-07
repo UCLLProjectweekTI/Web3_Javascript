@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculate your BMI</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+<div id="container" class="small">
+    <form id="form" action="">
+        <p><label for="height">Your height in cm: <input type="number" id="height" required min="100" max="235"></label>
+        </p>
+        <p>
+            <label for="weight">Your weight in kg: <input type="number" id="weight" required min="30" max="730"></label>
+        </p>
+        <p>
+            <input type="button" value="Calculate my BMI" id="submit">
+        </p>
+    </form>
+
+</div>
+
+<script>
+    function calculateBMI(height, weight) {
+        return Math.round(weight / (height * height) * 10000);
+    }
+
+    function generateResultingString() {
+        let height = document.getElementById("height").value;
+        let weight = document.getElementById("weight").value;
+        return "Your BMI is equal to " + calculateBMI(height, weight) + "."
+    }
+
+    function removeForm() {
+        document.getElementById("container").removeChild(document.getElementById("form"));
+    }
+
+    function addResult() {
+        let div = document.createElement("div");
+        div.setAttribute("id", "result");
+        let p = document.createElement("p");
+        p.appendChild(document.createTextNode(generateResultingString()));
+        div.appendChild(p);
+        div.appendChild(addReloadButton());
+        document.getElementById("container").appendChild(div);
+        document.getElementById("reloadButton").addEventListener("click", reloadForm);
+    }
+
+    function addReloadButton() {
+        let button = document.createElement("button");
+        button.setAttribute("value", "Calculate again");
+        button.setAttribute("id", "reloadButton");
+        button.appendChild(document.createTextNode("Calculate Again"));
+        return button;
+    }
+
+    function checkValidityForm() {
+        let inputFields = document.getElementsByTagName("input");
+        for (let field of inputFields) {
+            if (!field.checkValidity()) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function showErrorMsg() {
+        //errormessage on front of page
+        let msg = document.createElement("p");
+        msg.appendChild(document.createTextNode("Fill out all fields correctly."));
+        msg.setAttribute("class", "error");
+        document.getElementById("container").insertBefore(msg, document.getElementById("form"))
+
+        // individual error messages
+        let inputFields = document.getElementsByTagName("input");
+        let txt = 0;
+        for (let field of inputFields) {
+            if (!field.checkValidity()) {
+                let innerMsg = document.createElement("p");
+                innerMsg.setAttribute("class", "error");
+                txt++;
+                innerMsg.appendChild(document.createTextNode(txt + field.validationMessage));
+                document.getElementById("form").insertBefore(innerMsg, field.parentNode.parentNode)
+            }
+        }
+    }
+
+    function removeErrorMsg() {
+
+        let msgs = document.getElementsByClassName("error");
+        console.log(msgs);
+        console.log(msgs.length);
+        if (msgs.length > 0) {
+            for (let msg of msgs) {
+                let me = msg.parentNode;
+                me.removeChild(msg);
+            }
+        }
+    }
+
+    function showBMI() {
+        removeErrorMsg();
+        if (checkValidityForm()) {
+            addResult();
+            removeForm();
+        }
+        else {
+            showErrorMsg();
+        }
+    }
+
+    function reloadForm() {
+        location.reload();
+    }
+
+    document.getElementById("submit").addEventListener("click", showBMI);
+
+</script>
+</body>
+</html>

@@ -21,32 +21,56 @@
 </div>
 
 <script>
+    /**
+     * Calculates BMI according to known formula
+     * @param height in cm
+     * @param weight in kg
+     * @returns {number} the requested BMI
+     */
     function calculateBMI(height, weight) {
         return Math.round(weight / (height * height) * 10000);
     }
 
+    /**
+     * Generates the response to the view
+     * @returns {string}: Your BMI is equal to calculated_BMI
+     */
     function generateResultingString() {
         let height = document.getElementById("height").value;
         let weight = document.getElementById("weight").value;
         return "Your BMI is equal to " + calculateBMI(height, weight) + "."
     }
 
+    /**
+     * Removes the html form from the view
+     * Should be invoked when the user has correctly filled out the form
+     */
     function removeForm() {
         document.getElementById("container").removeChild(document.getElementById("form"));
     }
 
+    /**
+     * Generates the response to the user:
+     *  - generated String
+     * Adds "refresh" button with click event
+     */
     function addResult() {
         let div = document.createElement("div");
         div.setAttribute("id", "result");
         let p = document.createElement("p");
         p.appendChild(document.createTextNode(generateResultingString()));
         div.appendChild(p);
-        div.appendChild(addReloadButton());
+        div.appendChild(generateReloadButton());
         document.getElementById("container").appendChild(div);
         document.getElementById("reloadButton").addEventListener("click", reloadForm);
     }
 
-    function addReloadButton() {
+    /**
+     * Generates the reload (refresh) button
+     * Makes it possible to the user to fill out the form again without sending a new HTTP request
+     * @returns {HTMLButtonElement}
+     */
+    function generateReloadButton() {
         let button = document.createElement("button");
         button.setAttribute("value", "Calculate again");
         button.setAttribute("id", "reloadButton");
@@ -54,6 +78,10 @@
         return button;
     }
 
+    /**
+     * Returns true if and only if the input values pass the HTML5-validation
+     * @returns {boolean}
+     */
     function checkValidityForm() {
         let inputFields = document.getElementsByTagName("input");
         for (let field of inputFields) {
@@ -64,40 +92,52 @@
         return true;
     }
 
+    /**
+     * Generates the error messages, if any, based on the information of the HTML5-validation
+     */
     function showErrorMsg() {
         //errormessage on front of page
         let msg = document.createElement("p");
         msg.appendChild(document.createTextNode("Fill out all fields correctly."));
         msg.setAttribute("class", "error");
-        document.getElementById("container").insertBefore(msg, document.getElementById("form"))
+        document.getElementById("container").insertBefore(msg, document.getElementById("form"));
 
         // individual error messages
         let inputFields = document.getElementsByTagName("input");
-        let txt = 0;
         for (let field of inputFields) {
             if (!field.checkValidity()) {
                 let innerMsg = document.createElement("p");
                 innerMsg.setAttribute("class", "error");
-                txt++;
-                innerMsg.appendChild(document.createTextNode(txt + field.validationMessage));
+                innerMsg.appendChild(document.createTextNode(field.validationMessage));
                 document.getElementById("form").insertBefore(innerMsg, field.parentNode.parentNode)
             }
         }
     }
 
+    /**
+     * Removes all error messages, if any
+     * Should be invoked when user clicks again to "calculate" button
+     */
     function removeErrorMsg() {
-
         let msgs = document.getElementsByClassName("error");
-        console.log(msgs);
-        console.log(msgs.length);
-        if (msgs.length > 0) {
-            for (let msg of msgs) {
-                let me = msg.parentNode;
-                me.removeChild(msg);
-            }
+        let l = msgs.length;
+        for (let i = 0; i < l; i++) {
+            msgs[0].parentNode.removeChild(msgs[0]);
         }
     }
 
+    /**
+     * Reloads the page from browser cache
+     */
+    function reloadForm() {
+        location.reload();
+    }
+
+
+    /**
+     * Main method
+     * Should be invoked as click event on "calculate" button
+     */
     function showBMI() {
         removeErrorMsg();
         if (checkValidityForm()) {
@@ -107,10 +147,6 @@
         else {
             showErrorMsg();
         }
-    }
-
-    function reloadForm() {
-        location.reload();
     }
 
     document.getElementById("submit").addEventListener("click", showBMI);

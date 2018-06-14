@@ -8,6 +8,7 @@ body {
 p {
     margin: 1.5em 0.5em;
     padding: 1em;
+    line-height: 1.5em;
 }
 
 div#container {
@@ -40,6 +41,7 @@ form p {
     clear: both;
     margin: 1em 0;
     overflow: auto;
+    line-height: 2em;
 }
 
 button {
@@ -64,5 +66,9 @@ dd:last-child {
 
 #error, .error {
     border: 1px solid #ff4db8;
-    background-color: #ffb6e1;
+    background-color: #ffeef3;
+}
+
+span.error {
+    display: block;
 }

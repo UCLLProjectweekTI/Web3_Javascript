@@ -19,16 +19,17 @@
             event listener</a></dd>
         <dd>Remarks
             <ul>
-                <li>Current version uses  anonymous function <code>function(){}</code></li>
+                <li>Current version uses anonymous function <code>function(){}</code></li>
                 <li>Alternatively: do not pass any parameter to function <code>changeImage</code> and declare variable
                     <code>image</code> inside function
                 </li>
             </ul>
         </dd>
 
-        <dt>BMI calculator </dt>
+        <dt>BMI calculator</dt>
         <dd><a href="02calculateBMI.html">Example</a></dd>
-        <dd><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/createTextNode">Documentation about adding
+        <dd><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/createTextNode">Documentation about
+            adding
             text node</a></dd>
         <dd><a href="https://www.w3schools.com/jsref/obj_location.asp">Documentation about reloading page from cache</a>
         </dd>
@@ -41,7 +42,8 @@
 
         <dt>BMI calculator with form validation and documentation in JS</dt>
         <dd><a href="02calculateBMIv2.html">Example with form validation</a></dd>
-        <dd><a href="https://www.w3schools.com/js/js_validation_api.asp">Documentation on w3schools about using html5 validation in JS</a>
+        <dd><a href="https://www.w3schools.com/js/js_validation_api.asp">Documentation on w3schools about using html5
+            validation in JS</a>
         </dd>
         <dd><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Documentation
             on arrays</a></dd>
@@ -54,16 +56,27 @@
 
         <dt>Select-and-Go Navigation</dt>
         <dd><a href="03SelectAndGoNavigation.html">Example</a></dd>
-        <dd><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Event_handlers">DOM on-event handlers</a>: difference
-        between "onclick" and "click" as event</dd>
+        <dd><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Event_handlers">DOM on-event handlers</a>:
+            difference
+            between "onclick" and "click" as event
+        </dd>
         <dd><a href="https://developer.mozilla.org/en-US/docs/Web/Events/change">Documentation on change event</a></dd>
-        <dd><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript">Documentation on element <code>noscript</code></a></dd>
+        <dd><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript">Documentation on element <code>noscript</code></a>
+        </dd>
 
         <dt>Validating Password</dt>
-        <dd><a href="03SelectAndGoNavigation.html">Example</a></dd>
-        <dd><a href="https://css-tricks.com/form-validation-part-1-constraint-validation-html/">How to combine constraint validation in HTML and JS</a></dd>
-        <dd><a href="https://developer.mozilla.org/en-US/docs/Web/Events/blur">Documentation on blur event</a> (when element loses focus)</dd>
-    <dd><a href="http://html5pattern.com/">Regularly used input patterns in html forms</a></dd>
+        <dd><a href="04validatingPassword.html">Example</a></dd>
+        <dd><a href="https://css-tricks.com/form-validation-part-1-constraint-validation-html/">How to combine
+            constraint validation in HTML and JS</a></dd>
+        <dd><a href="https://developer.mozilla.org/en-US/docs/Web/Events/blur">Documentation on blur event</a> (when
+            element loses focus)
+        </dd>
+        <dd><a href="http://html5pattern.com/">Regularly used input patterns in html forms</a></dd>
+        <dd>Remark: When text, added by JS, causes replacing of the submit button, it can happen that the onclick event
+            is not registerd by JS. Reproduction of the problem: resize font of span to 100%; put "a" in first password
+            field; click on second password field; put "aA12" on first password field; click on submit, lowest part of
+            the button. The form appears again (submit request is not sent).
+        </dd>
     </dl>
     <h3>Questions</h3>
     <ul>

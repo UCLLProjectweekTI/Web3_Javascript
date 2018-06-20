@@ -26,8 +26,8 @@
     }
 
     function generateResultingString() {
-        var height = document.getElementById("height").value;
-        var weight = document.getElementById("weight").value;
+        let height = document.getElementById("height").value;
+        let weight = document.getElementById("weight").value;
         return "Your BMI is equal to " + calculateBMI(height, weight) + "."
     }
 
@@ -36,9 +36,9 @@
     }
 
     function addResult() {
-        var div = document.createElement("div");
+        let div = document.createElement("div");
         div.setAttribute("id", "result");
-        var p = document.createElement("p");
+        let p = document.createElement("p");
         p.appendChild(document.createTextNode(generateResultingString()));
         div.appendChild(p);
         div.appendChild(addReloadButton());
@@ -47,7 +47,7 @@
     }
 
     function addReloadButton() {
-        var button = document.createElement("button");
+        let button = document.createElement("button");
         button.setAttribute("value","Calculate again");
         button.setAttribute("id","reloadButton");
         button.appendChild(document.createTextNode("Calculate Again"));
